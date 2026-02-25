@@ -1,6 +1,7 @@
 package com.berk.userauthservice.service;
 
-import com.berk.userauthservice.dto.AuthResponse;
+import com.berk.userauthservice.dto.AuthResponseLogin;
+import com.berk.userauthservice.dto.AuthResponseRegister;
 import com.berk.userauthservice.entity.Role;
 import com.berk.userauthservice.entity.User;
 import com.berk.userauthservice.exception.InvalidCredentialsException;
@@ -25,7 +26,7 @@ public class AuthService {
         this.jwtService = jwtService;
     }
 
-    public AuthResponse register(String username, String rawPassword) {
+    public AuthResponseRegister register(String username, String rawPassword) {
 
         if(userRepository.findByUsername(username).isPresent()) {
             throw new UsernameAlreadyExistsException("Username already exists");
@@ -37,10 +38,10 @@ public class AuthService {
 
         userRepository.save(user);
 
-        return new AuthResponse(user.getUsername());
+        return new AuthResponseRegister(user.getUsername());
     }
 
-    public AuthResponse login(String username, String rawPassword) {
+    public AuthResponseLogin login(String username, String rawPassword) {
 
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new InvalidCredentialsException("User not found"));
@@ -51,6 +52,6 @@ public class AuthService {
 
         String token = jwtService.generateToken(user);
 
-        return new AuthResponse(token);
+        return new AuthResponseLogin(token);
     }
 }

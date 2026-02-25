@@ -1,10 +1,10 @@
 package com.berk.userauthservice.dto;
 
-public class AuthResponse {
+public class AuthResponseRegister {
 
     private String username;
 
-    public AuthResponse(String username) {
+    public AuthResponseRegister(String username) {
         this.username = username;
     }
 

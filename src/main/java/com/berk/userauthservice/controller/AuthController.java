@@ -1,6 +1,7 @@
 package com.berk.userauthservice.controller;
 
-import com.berk.userauthservice.dto.AuthResponse;
+import com.berk.userauthservice.dto.AuthResponseLogin;
+import com.berk.userauthservice.dto.AuthResponseRegister;
 import com.berk.userauthservice.dto.LoginRequest;
 import com.berk.userauthservice.dto.RegisterRequest;
 import com.berk.userauthservice.service.AuthService;
@@ -22,12 +23,12 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public AuthResponse register(@Valid @RequestBody RegisterRequest request) {
+    public AuthResponseRegister register(@Valid @RequestBody RegisterRequest request) {
         return authService.register(request.getUsername(), request.getPassword());
     }
 
     @PostMapping("/login")
-    public AuthResponse login(@Valid @RequestBody LoginRequest request) {
+    public AuthResponseLogin login(@Valid @RequestBody LoginRequest request) {
         return authService.login(request.getUsername(), request.getPassword());
     }
 }
