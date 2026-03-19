@@ -2,14 +2,6 @@
 
 Production-ready JWT-based authentication API built with Spring Boot.
 
-## Live Demo
-
-https://userauthservice-production-bb9f.up.railway.app
-
-> Note: The application may take a few seconds to wake up due to cloud cold start.
-
----
-
 ## Overview
 
 UserAuthService is a stateless authentication API that provides:
@@ -20,7 +12,7 @@ UserAuthService is a stateless authentication API that provides:
 - Role-based authorization (USER / ADMIN)
 - Protected admin endpoints
 
-The application is fully containerized using Docker and deployed to the cloud with Railway.
+The application is fully containerized using Docker.
 
 ---
 
@@ -35,7 +27,6 @@ The application is fully containerized using Docker and deployed to the cloud wi
 - Docker (multi-stage build)
 - Docker Compose
 - GitHub Actions (CI)
-- Railway (Cloud Deployment)
 
 ---
 
@@ -106,16 +97,7 @@ Pipeline runs on every push to the main branch.
 
 ## Deployment
 
-The application is deployed on Railway with a managed PostgreSQL database.
-
-Production deployment includes:
-
-- Docker containerization
-- Cloud PostgreSQL integration
-- Secure environment variable management
-- HTTPS endpoint
-
----
+The application is containerized with Docker and can be deployed to any cloud provider.
 
 ## Architecture
 
